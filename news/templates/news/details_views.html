@@ -1,0 +1,16 @@
+{% extends 'main/layout.html' %}
+{# Выше сказано что стиль наследуется от осноного html документа, для которого уже написаны css стили! #}
+{% block title %}{{ article.title }}{%endblock%}
+
+{% block content %}
+<main>
+    <div class="features">
+        <h1>{{ article.title }}</h1><br> 
+        <p>{{ form.anons }}</p><br>
+        <p>{{ article.full_text }}</p><br>
+        <p>{{ article.date }}</p><br>
+        <a href="{% url 'news-delete' article.id %}" class="btn btn-danger">Удалить</a>
+        <a href="{% url 'news-update' article.id %}" class="btn btn-info">Редактировать</a>
+    </div>
+</main>
+{%endblock%}

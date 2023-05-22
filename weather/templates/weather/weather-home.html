@@ -1,0 +1,48 @@
+{% extends 'main/layout.html' %}
+{# Выше сказано что стиль наследуется от осноного html документа, для которого уже написаны css стили! #}
+{% block title %}Погода{%endblock%}
+{% block content %}
+<div class="container md-5">
+    <div class="row">
+        <div class="col-5">
+            <h1>Погода в вашем городе</h1>
+            <form action="" method="post">
+              {% csrf_token %}
+              {{ form.name }}
+              {% if massage %}
+                <div class ="notification {{ massage_class }}">{{ massage }}</div> 
+              {% endif %} 
+              <input type="submit" name="send" value="Узнать" class="mt-2 btn btn-info">
+            </form>
+        </div>
+        
+        <div class="col-5 offset-2">
+            <h1>Информация</h1>
+            {% for info in all_info %}
+            <div class="alert alert-success">
+                <div class="row">
+                  <div class="col-9">
+                    <b>Город:</b> {{ info.city }}<br>
+                    <b>Температура:</b> {{ info.temperature }} С<sup>o</sup><br>
+                    <b>Температура мин.:</b> {{ info.temp_min }} С<sup>o</sup><br>
+                    <b>Температура макс.:</b> {{ info.temp_max }} С<sup>o</sup><br>
+                    <b>Облачность:</b> {{ info.clouds }} %<br>
+                    <b>Ветер:</b> {{ info.winds }} м/сек<br>
+                    <form action="" method="post">
+                      {% csrf_token %}
+                      <div class="media-right">
+                        <a href="{% url 'delete_city' info.city %}">
+                          <button class="delete"></button>
+                        </a>
+                      </div>
+                    </form>
+                </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>  
+{%endblock%}
+
+</body>
+</html>

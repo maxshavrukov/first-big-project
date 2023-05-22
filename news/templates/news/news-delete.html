@@ -1,0 +1,16 @@
+{% extends 'main/layout.html' %}
+{# Выше сказано что стиль наследуется от осноного html документа, для которого уже написаны css стили! #}
+{% block title %}Удаление статьи{%endblock%}
+
+{% block content %}
+<main></main>
+    <div class="features">
+        <h1>Удаление статьи</h1> 
+        <form method="post"> {# Метод post нужен для обазначения того, что пользователь будет делать публикацию! Это нужно в news/views.py #}
+            {% csrf_token %}
+            <button class="btn btn-success" type = "submit">Удалить статью</button>
+        </form>
+        {# Комментарий #}
+    </div>
+</main>
+{%endblock%}

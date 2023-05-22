@@ -1,0 +1,26 @@
+{% extends 'main/layout.html' %}
+{# Выше сказано что стиль наследуется от осноного html документа, для которого уже написаны css стили! #}
+{% block title %}Статьи{%endblock%}
+{% block content %}
+<div class="container md-5">
+    <div class="row">
+        <div class="col-5">
+            <h1>Напечатать статью</h1> 
+            <a class="btn btn-outline-primary" href="{% url 'create' %}">Добавить</a>
+        </div>
+    <div class="col-5 offset-2">
+        <h1>Текущие статьи</h1>
+        {% if news %}
+        {# Тут мы написали какие данные из модели нужно выводить, это title и anons #}
+            {% for el in news %}
+                <div class="alert alert-info">
+                <h2>{{ el.title }}</h2>
+                <b>{{ el.anons }}</b><br>
+                <a href="{% url 'news-detail' el.id %}" class="btn btn-info">Читать дальше</a>
+                </div>
+            {% endfor %}
+            {% else %}
+            <p>У вас нет записей!</p>
+        {% endif %}
+    </div>
+{%endblock%}

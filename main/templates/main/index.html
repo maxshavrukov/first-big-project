@@ -1,0 +1,23 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ title }}{%endblock%}
+
+{% block content %}
+<main>
+    <div class="features">
+        <h>{{ title }}</h> 
+        <p>Это сделанно с помощью метода render! Это сделанно с помощью метода render! Это сделанно с помощью метода render!</p>
+        <button class="btn btn-warning">Нажми меня!</button>
+
+        {% for el in values %}
+            {% if el == 'Hello' %}
+                 <p>{{ el }}</p>
+            {% endif %}
+        {% endfor %}
+
+        {% for el in obj %}
+            <p>{{ el }}</p>
+        {% endfor %}
+    </div>
+</main>
+{%endblock%}

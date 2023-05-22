@@ -1,0 +1,46 @@
+header{
+    margin-top: 7px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.alert-success{
+    width: 350px;
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.alert-info{
+    width: 350px;
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.col-5{
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+.alert p{
+    font-size: 20px;
+    font-style: initial;
+}
+
+main .features{
+    margin-top: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+.btn-del{
+    margin-top: 16px;
+}
